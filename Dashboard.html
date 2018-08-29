@@ -1,10 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
 	<head>
-		<link rel="stylesheet" type = "text/css" href="dashboard_and_task_style.css"/>
+		<link rel="stylesheet" type = "text/css" href="dashboard_style.css"/>
 		
 		<style type ="text/css">
-		
+			
+			
 			#table{
 				position: absolute;
 				top: 70px;
@@ -25,7 +26,7 @@
 		</style>
 	</head>
 	
-	<body>
+	<body style="background-color:#f4f4ed;">
 
 		<div id ="logo">
 			<img src= "logo.png" height = "150"/>
@@ -113,11 +114,13 @@
 			</table>
 		</div>
 	
-		<!- ------------ JavaScript part ---------------- ->
-		
-		
-		
-		
-
+		<div id="time">
+			<script type = "text/javascript">
+				var current = new Date();
+				var time = current.getHours() + " : " + current.getMinutes();
+				var date = current.getDay() + " / " + current.getMonth() + " / " + current.getYear();
+				
+			</script>
+		</div>
 	</body>
 </html>

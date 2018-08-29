@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		<link rel="stylesheet" type = "text/css" href="task_style.css"/>
+		
+		<style type ="text/css">
+			h3{
+			color: #033c91;
+			}
+			#stat_table{
+				position: absolute;
+				top: 100px;
+				right:100px;
+			}
+			
+			#cmt{
+				position: absolute;
+				top: 520px;
+				right:100px;
+			}
+			
+			#task_info{
+				position: absolute;
+				top: 70px;
+				left:400px;
+			}
+			
+			#asset > table{
+				border-bottom-color: #f4f4ed;
+				border-top-color:#f4f4ed;
+				border-right-color:#f4f4ed;
+				border-left-color:#f4f4ed;
+				
+			span{
+				color:#f08c16;
+				font-style:italic;
+			}
+			
+			
+		</style>
+	</head>
+	
+	<body style="background-color:#f4f4ed;">
+
+		<div id ="logo">
+			<img src= "logo.png" height = "150"/>
+		</div>	
+		
+		<div id = "time">
+		<!-to be continue->
+		</div>
+		
+		<div id = "task_stat">
+		<!-to be continue->
+		</div>
+		
+
+				
+		<div id="back_btn">
+			<input type ="submit" name="backBtn" value = "Back" onclick=""/>
+		</div>
+		
+		<p id="demo"></p>
+		
+		<div class="vl"></div>
+		
+		<div class="footer">
+			<img src= "heading.png" height = "50"/>
+			<p>@ProjectX</p>
+		</div>
+		
+		<div id="stat_table">
+			<table border="1" width ="500" height ="170">
+				<tr>
+						<th colspan = "4" height= "50">STATUS</th>
+				</tr>
+				<tr>
+					<th></th>
+					<th>Start time </th>
+					<th>Stop time </th>
+					<th>Duration </th>
+				</tr>
+				<tr align="center">
+					<th>Estimate</th>
+					<td> - </td>
+					<td> - </td>
+					<td> - </td>
+				</tr>
+				<tr align="center">
+					<th>Reality</th>
+					<td> - </td>
+					<td> - </td>
+					<td> - </td>
+
+				</tr>
+			</table>
+		</div>
+	
+		<div id="time">
+			<script type = "text/javascript">
+				var current = new Date();
+				var time = current.getHours() + " : " + current.getMinutes();
+				var date = current.getDay() + " / " + current.getMonth() + " / " + current.getYear();
+				
+			</script>
+		</div>
+		
+		<div id = "cmt">
+			<h3>Comment:<h3><br/>
+			<textarea name = " cmtArea" rows="10" cols="68" weight="500"> </textarea>
+		</div>
+		
+		<div id= "task_info">
+			<h3>Task ID:<h3>
+			<h3>Dependence:</h3>
+			<h3>Description:</h3>
+			<p><span>(this is a paragraph)</span></p><br/><br/>
+			<h3>Team:</h3>
+			<h4>Person:</h4>
+				<table border="1" width ="700" >	
+					<tr align="center">
+						<td> - </td>
+					</tr>
+					<tr align="center">
+						<td> - </td>
+					</tr>
+				</table>
+			<br/><br/>	
+			<h3>DR process</h3><br/><br/>
+			<h3>Asset:<h3>
+			<div id="asset">
+				<table  border="2" width ="700" >	
+					<tr>	
+						<th>ID </th>
+						<th width= "300">Application </th>
+						<th>Server</th>
+						<th>Domain</th>
+					</tr>
+					<tr align="center">
+						<td> - </td>
+						<td> - </td>
+						<td> - </td>
+						<td> - </td>
+					</tr>
+					<tr align="center">
+						<td> - </td>
+						<td> - </td>
+						<td> - </td>
+						<td> - </td>
+					</tr>
+					<tr align="center">
+						<td> - </td>
+						<td> - </td>
+						<td> - </td>
+						<td> - </td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		
+	</body>
+</html>

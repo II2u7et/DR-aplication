@@ -5,6 +5,7 @@
 		
 		<style type ="text/css">
 			
+			h1{color: #18c469; font-family: impact;}
 			
 			#table{
 				position: absolute;
@@ -31,14 +32,27 @@
 		<div id ="logo">
 			<img src= "logo.png" height = "150"/>
 		</div>	
-		<!- ------------ HTML part ---------------- ->
 		
-		<div id = "time">
-		<!-to be continue->
-		</div>
-		
-		<div id = "task_stat">
-		<!-to be continue->
+		<div id="time">
+			<h1>
+				<div id="txt"></div>
+				<script type = "text/javascript">
+				startTime()
+				function startTime() {
+					var today = new Date();
+					var h = today.getHours();
+					var m = today.getMinutes();
+					m = checkTime(m);
+					document.getElementById('txt').innerHTML =
+					h + " : " + m ;
+					var t = setTimeout(startTime, 500);
+				}
+				function checkTime(i) {
+					if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+					return i;
+				}
+				</script>
+			</h1>	
 		</div>
 				
 		<p id="demo"></p>

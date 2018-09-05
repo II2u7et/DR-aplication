@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<link rel="stylesheet" type = "text/css" href="task_style.css"/>
-		
+		<title>Task view</title>
 		<style type ="text/css">
 			h3{color: #033c91;}
 			
@@ -11,13 +11,13 @@
 			#stat_table{
 				position: absolute;
 				top: 100px;
-				right:100px;
+				left:1300px;
 			}
 			
 			#cmt{
 				position: absolute;
 				top: 520px;
-				right:100px;
+				left:1300px;
 			}
 			
 			#task_info{
@@ -31,11 +31,26 @@
 				border-top-color:#f4f4ed;
 				border-right-color:#f4f4ed;
 				border-left-color:#f4f4ed;
-				
+			}	
+			
+			#stopT_btn{
+				position: absolute;
+				top: 800px;
+				left:1700px;
+			}
+			
+			#startT_btn{
+				position: absolute;
+				top: 800px;
+				left:500px;
+			
+			}	
 			span{
 				color:#f08c16;
 				font-style:italic;
 			}
+			
+			
 			
 		</style>
 	</head>
@@ -51,7 +66,19 @@
 		</div>
 				
 		<div id="back_btn">
-			<input type ="submit" name="backBtn" value = "Back" onclick=""/>
+			<form action = "dashboard.html"><input type ="submit" name="backBtn" value = "Back"  style="height: 25px; width: 100px ; font-weight: bold"/></form>
+		</div>
+		
+		<div id="startT_btn">
+			<form action = "starT();"><input type ="submit" name="startT_btn" value = "Start"  style="height: 25px; width: 100px; font-weight: bold; color: #13a055" /></form>
+			<script>
+			</script>
+		</div>
+		
+		<div id="stopT_btn">
+			<form action = "stopT();"><input type ="submit" name="stopT_btn" value = "Stop"  style="height: 25px; width: 100px; font-weight: bold; color: red"/></form>
+			<script>
+			</script>
 		</div>
 		
 		<p id="demo"></p>

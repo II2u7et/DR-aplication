@@ -70,15 +70,52 @@
 		</div>
 		
 		<div id="startT_btn">
-			<form action = "starT();"><input type ="submit" name="startT_btn" value = "Start"  style="height: 25px; width: 100px; font-weight: bold; color: #13a055" /></form>
+			<button onclick="timeShow()"  style="height: 25px; width: 100px; font-weight: bold; color: #13a055" > Start</button>
 			<script>
+				function timeShow() {
+					var today = new Date();
+					var h = today.getHours();
+					var m = today.getMinutes();
+					m = checkTime(m);
+					h = checkTime(h);
+					document.getElementById("s31").innerHTML = h + " : " + m;
+				}
+				function checkTime(i) {
+					if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+					return i;
+				}
 			</script>
 		</div>
 		
 		<div id="stopT_btn">
-			<form action = "stopT();"><input type ="submit" name="stopT_btn" value = "Stop"  style="height: 25px; width: 100px; font-weight: bold; color: red"/></form>
+				<button onclick="sTimeShow()"  style="height: 25px; width: 100px; font-weight: bold; color: red" > Stop</button>
 			<script>
+				function sTimeShow() {
+					var today = new Date();
+					var h = today.getHours();
+					var m = today.getMinutes();
+					h = checkTime(h);
+					m = checkTime(m);
+					document.getElementById("s32").innerHTML = h + " : " + m;
+
+					var startT = document.getElementById("s31");
+					var sh =startT.substr(0, 2);
+					var sm = parseInt(startT.substr(2, 2), 10);
+					var dh = checkTime(h - sh);
+					var dm = checkTime(m - sm);
+					durationTime(sh, sm);
+					
+				}
+
+				function durationTime(sh, sm){
+					document.getElementById("s33").innerHTML = sh + " : " + sm;
+				}
+				function checkTime(i) {
+					if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+					return i;
+				}
 			</script>
+			
 		</div>
 		
 		<p id="demo"></p>
@@ -109,9 +146,9 @@
 				</tr>
 				<tr align="center">
 					<th>Reality</th>
-					<td> - </td>
-					<td> - </td>
-					<td> - </td>
+					<td id="s31"> - </td>
+					<td id="s32"> - </td>
+					<td id="s33"> - </td>
 
 				</tr>
 			</table>

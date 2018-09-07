@@ -77,7 +77,6 @@
 					var h = today.getHours();
 					var m = today.getMinutes();
 					m = checkTime(m);
-					h = checkTime(h);
 					document.getElementById("s31").innerHTML = h + " : " + m;
 				}
 				function checkTime(i) {
@@ -91,25 +90,37 @@
 				<button onclick="sTimeShow()"  style="height: 25px; width: 100px; font-weight: bold; color: red" > Stop</button>
 			<script>
 				function sTimeShow() {
-					var today = new Date();
-					var h = today.getHours();
-					var m = today.getMinutes();
-					h = checkTime(h);
-					m = checkTime(m);
-					document.getElementById("s32").innerHTML = h + " : " + m;
 
-					var startT = document.getElementById("s31");
-					var sh =startT.substr(0, 2);
-					var sm = parseInt(startT.substr(2, 2), 10);
-					var dh = checkTime(h - sh);
-					var dm = checkTime(m - sm);
-					durationTime(sh, sm);
 					
+					if(!document.getElementById("cmtA").value){ //.match("") --- no idea
+						alert("James doesn't like this. (=.=) \n Please leave a commnet!!!")
+					}else{
+
+						var today = new Date();
+						var h = today.getHours();
+						var m = today.getMinutes();
+						var sm = checkTime(m);			
+
+						document.getElementById("s32").innerHTML = h + " : " + sm;
+
+						var startT = document.getElementById("s31").innerHTML;
+						var strLength = startT.length;
+						var sh, sm;
+						if(strLength == 7){
+							sh = parseInt(startT.substr(0,2),10);
+							sm = parseInt(startT.substr(5,2),10);
+						} else{
+							sh = parseInt(startT.substr(0,1),10);
+							sm = parseInt(startT.substr(4,2),10);
+
+						}
+						var dh = h - sh;
+						var dm = checkTime(m - sm);
+						document.getElementById("s33").innerHTML = dh + " : " + dm; // update the duration in the table
+						//update process status cell
+					}
 				}
 
-				function durationTime(sh, sm){
-					document.getElementById("s33").innerHTML = sh + " : " + sm;
-				}
 				function checkTime(i) {
 					if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
 					return i;
@@ -130,7 +141,7 @@
 		<div id="stat_table">
 			<table border="1" width ="500" height ="170">
 				<tr>
-						<th colspan = "4" height= "50">STATUS</th>
+						<th id= "s0" colspan = "4" height= "50">STATUS</th>
 				</tr>
 				<tr>
 					<th></th>
@@ -179,7 +190,7 @@
 		
 		<div id = "cmt">
 			<h3>Comment:<h3><br/>
-			<textarea name = " cmtArea" rows="10" cols="68" weight="500"> </textarea>
+			<textarea id="cmtA" name = "cmtArea" rows="10" cols="68" weight="500" placeholder="Enter Comment " required> </textarea>
 		</div>
 		
 		<div id= "task_info">

@@ -18,7 +18,7 @@
 			
 			#logout_btn{
 				position: absolute;
-				bottom: 250px;
+				top: 800px;
 				left:120px;
 			}
 			
@@ -35,7 +35,7 @@
 			.footer > p {
 				position: fixed;
 				right: 5%;
-				fonr-weight: bold;
+				font-weight: bold;
 				bottom: 20px;
 				height: 5px; 
 			}				

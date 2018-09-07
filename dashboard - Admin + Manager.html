@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		<link rel="stylesheet" type = "text/css" href="dashboard_style.css"/>
+		<title>Dashboard</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style type ="text/css">
+			
+			h1{color: #18c469; font-family: impact;}
+			
+			#table{
+				position: absolute;
+				top: 70px;
+				left:390px;
+			}
+			
+			.createT_btn{
+				position: absolute;
+				top: 600px;
+				left:120px;
+			}
+
+			#deleteT_btn{
+				position: absolute;
+				top: 650px;
+				left:120px;
+			}
+
+			.tableB{
+				position: absolute;
+				top: 0px;
+				left:390px;
+			}
+
+			/* The popup form - hidden by default */
+			.form-popup {
+				display: none;
+				position: fixed;
+				bottom: 0;
+				right: 15px;
+				height: 72%;
+				border: 3px solid #f1f1f1;
+				z-index: 9;
+				overflow: auto;
+				
+			}
+			
+			/* Add styles to the form container */
+				.form-container {
+				max-width: 300px;
+				padding: 10px;
+				background-color: white;
+			}
+
+			/* Full-width input fields */
+			.form-container input[type=text]{
+				width: 90%;
+				padding: 15px;
+				margin: 5px 0 22px 0;
+				border: none;
+				background: #f1f1f1;
+			}
+
+			/* When the inputs get focus, do something */
+				.form-container input[type=text]:focus {
+				background-color: #ddd;
+				outline: none;
+			}
+
+			/* Set a style for the submit/login button */
+			.form-container .createF_btn {
+				background-color: #4CAF50;
+				color: white;
+				padding: 16px 20px;
+				border: none;
+				cursor: pointer;
+				width: 100%;
+				margin-bottom:10px;
+				opacity: 0.8;
+			}
+
+			/* Add a red background color to the cancel button */
+			.form-container .cancel_btn {
+				background-color: red;
+				color: white;
+				padding: 16px 20px;
+				border: none;
+				cursor: pointer;
+				width: 100%;
+				margin-bottom:10px;
+				opacity: 0.8;
+			}
+
+			/* Add some hover effects to buttons */
+			.form-container .btn:hover, .open-button:hover {
+				opacity: 1;
+			}
+			
+			tbody tr{
+				background:#f7f7f7;
+			}
+			
+
+		</style>
+	</head>
+	
+	<body style="background-color:#f4f4ed;">
+
+		<div id ="logo">
+			<img src= "logo.png" height = "150"/>
+		</div>	
+		
+		<div id="time">
+			<h1>
+				<div id="txt"></div>
+				<script type = "text/javascript">
+				startTime()
+				function startTime() {
+					var today = new Date();
+					var h = today.getHours();
+					var m = today.getMinutes();
+					m = checkTime(m);
+					document.getElementById('txt').innerHTML =
+					h + " : " + m ;
+					var t = setTimeout(startTime, 500);
+				}
+				function checkTime(i) {
+					if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+					return i;
+				}
+				</script>
+			</h1>	
+		</div>
+
+		
+		<button class ="createT_btn" onclick="createTForm()"  style="height: 25px; width: 100px; font-weight: bold; color: #01b689"> Create Task</button>
+			
+		<div class="form-popup" id="myForm">
+			
+			<form  class="form-container"> <!- action="/action_page.php" ->
+				<center><h1>CREATE TASK</h1></center>
+			  <label for="ID"><b>TaskID</b></label>
+			  	<input type="text" placeholder="Enter Task ID" name="taskID" required>
+		  
+			  <label for="Dependance"><b>Dependance</b></label>
+			  	<input type="text" placeholder="Enter Dependance" name="dependance">
+
+			  <label for="Desc"><b>Decription</b></label>
+			  	<input type="text" placeholder="Enter Descripton" name="desc">
+
+			  <label for="Team"><b>Team</b></label>
+			  	<input type="text" placeholder="Enter Team" name="team" required>
+
+			  <label for="Person"><b>Person</b></label>
+			  	<input type="text" placeholder="Enter Person" name="person" required>
+			  
+			  <label for="DR Process"><b>DR Proces</b></label>
+			  	<input type="text" placeholder="Enter DR Proces" name="drProcess" required>
+					
+			  <label for="Asset ID"><b>AssetID</b></label>
+			  	<input type="text" placeholder="Enter Asset ID " name="assetID" required>
+		  
+			  <label for="Application"><b>Application</b></label>
+			  	<input type="text" placeholder="Enter Aplication " name="application" required>
+			  
+			  <label for="Server"><b>Server</b></label>
+			  	<input type="text" placeholder="Enter Server " name="svr" required>
+
+			  <label for="Domain"><b>Domain</b></label>
+			  	<input type="text" placeholder="Enter Domain " name="domain" required>
+			 
+			  <label for="Start Time"><b>Start Time</b></label>
+			  	<input type="text" placeholder="Enter Start Time " name="startTime" required>	
+
+			  <label for="Stop Time"><b>Stop Time</b></label>
+			  	<input type="text" placeholder="Enter stopTime " name="stopTime" required>
+
+				<input type="checkbox"  name="yesOC"value ="On Scope">On Scope 
+				
+			  <button type="submit" class="createF_btn">Create</button>
+				<button type="button" class="cancel_btn" onclick="closeCreateTForm()">Cancle</button>
+				
+			</form>
+		</div>
+
+		<script>
+			function createTForm() {
+				document.getElementById("myForm").style.display = "block";
+			}
+			
+			function closeCreateTForm() {
+				document.getElementById("myForm").style.display = "none";
+			}
+		</script>
+		
+
+		<div id="deleteT_btn">
+			<button onclick=""  style="height: 25px; width: 100px; font-weight: bold; color: #bb8c09" > Delete Task</button>
+		</div>
+
+		<p id="demo"></p>
+		
+		<div class="vl"></div>
+		
+		<div id="logout_btn">
+			<form action = "index.html"><input type ="submit" name="logoutBtn" value="Logout" style="height: 25px; width: 100px ; font-weight: bold" /></form>
+		</div>
+		
+		
+		<div class="footer">
+			<img src= "heading.png" height = "50"/>
+			<p>@ProjectX</p>
+		</div>
+		
+		<div id="table">
+			<table border="1" width ="1500">
+				<tr>
+					<th>ID</th>
+					<th>Start time </th>
+					<th>Stop time </th>
+					<th>Duration </th>
+					<th>Description </th>
+					<th>Person</th>
+					<th>Team</th>
+					<th>DR Process</th>
+					<th>Asset ID</th>
+					<th>App</th>
+					<th>Dependance</th>
+					<th>Commnent</th>
+					<th>Status</th>
+					<th>In Scope</th>
+				</tr>
+				<tr>
+				<div class="tableB">
+					<script>	
+						//generate_table();
+						function generate_table() {
+							 // get the reference for the body
+							 var body = document.getElementsByTagName("body")[0];
+							 
+							 // creates a <table> element and a <tbody> element
+							 var tbl = document.createElement("table");
+							 var tblBody = document.createElement("tbody");
+						 
+							// creating all cells
+							for (var i = 0; i < 15; i++) {
+							// creates a table row
+								var row = document.createElement("tr");
+							 
+								for (var j = 0; j < 14; j++) {
+								  // Create a <td> element and a text node, make the text
+								  // node the contents of the <td>, and put the <td> at
+								  // the end of the table row
+								  var cell = document.createElement("td");
+								  row.appendChild(cell);
+								}
+							 
+								// add the row to the end of the table body
+								tblBody.appendChild(row);
+							}
+						 
+						  // put the <tbody> in the <table>
+						  tbl.appendChild(tblBody);
+						  // appends <table> into <body>
+						  body.appendChild(tbl);
+						  // sets the border attribute of tbl to 2;
+						  tbl.setAttribute("border", "2");
+						}
+					</script>
+				</div>
+				</tr>
+			</table>
+		</div>
+	
+		<div id="time">
+			<script type = "text/javascript">
+				var current = new Date();
+				var time = current.getHours() + " : " + current.getMinutes();
+				var date = current.getDay() + " / " + current.getMonth() + " / " + current.getYear();
+				
+			</script>
+		</div>
+	</body>
+</html>
